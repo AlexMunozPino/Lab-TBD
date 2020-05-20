@@ -1,6 +1,5 @@
 package cl.tbd.emergencias.Models;
 
-import java.util.Date;
 
 public class Habilidad {
     private Integer id;
@@ -18,4 +17,13 @@ public class Habilidad {
     public void setId(Integer id) {
         this.id = id;
     }
+
+    public String getDescrip() {
+        return this.descrip;
+    }
+
+    public void setDescrip(String descrip) {
+        this.descrip = descrip;
+    }
+
 }
