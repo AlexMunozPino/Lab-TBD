@@ -1,10 +1,10 @@
-package cl.tbd.emergencias.Models
+package cl.tbd.emergencias.Models;
 
 public class Eme_tarea {
     private Integer id;
     private String descrip;
 
-    public Eme_habildidad(Integer id, String descrip){
+    public Eme_tarea(Integer id, String descrip){
         this.id = id;
         this.descrip = descrip;
     }
