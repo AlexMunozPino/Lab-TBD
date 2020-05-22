@@ -7,3 +7,5 @@ build
 .gradle
 .project
 .vscode
+src/main/resources/application.properties
+gradle
