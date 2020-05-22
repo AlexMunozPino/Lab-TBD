@@ -1,4 +1,4 @@
-package cl.tbd.eme_habilidad.Models;
+package cl.tbd.emergencias.Models
 
 public class Eme_habildidad {
     private Integer id;

@@ -1,4 +1,4 @@
-package cl.tbd.eme_tarea.Models;
+package cl.tbd.emergencias.Models
 
 public class Eme_tarea {
     private Integer id;
