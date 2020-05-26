@@ -1,7 +1,5 @@
 package cl.tbd.emergencias.Repositories;
 
-import cl.tbd.emergencias.Models.Voluntario;
-
 import java.util.List;
 
 public interface RepositoryInterface<T>{

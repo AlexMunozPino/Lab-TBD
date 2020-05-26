@@ -1,15 +1,9 @@
 package cl.tbd.emergencias.Models;
 
-public class Eme_habildidad {
+public class Eme_habilidad {
     private Integer id;
     private Integer id_emergencia;
     private Integer id_habilidad;
-
-    public Eme_habilidad(Integer id,Integer id_emergencia, Integer id_habilidad){
-        this.id = id;
-        this.id_emergencia = id_emergencia;
-        this.id_habilidad = id_habilidad;
-    }
 
     public Integer getId() {
         return id;
@@ -36,4 +30,8 @@ public class Eme_habildidad {
     }
 
 
+    public Eme_habilidad(Integer id_emergencia, Integer id_habilidad) {
+        this.id_emergencia = id_emergencia;
+        this.id_habilidad = id_habilidad;
+    }
 }

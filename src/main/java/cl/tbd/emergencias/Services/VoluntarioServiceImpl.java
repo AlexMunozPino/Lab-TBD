@@ -2,7 +2,6 @@ package cl.tbd.emergencias.Services;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 
 import cl.tbd.emergencias.Models.Voluntario;
 import cl.tbd.emergencias.Repositories.VoluntarioRepository;
