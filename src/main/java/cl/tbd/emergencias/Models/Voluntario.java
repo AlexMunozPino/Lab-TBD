@@ -8,7 +8,7 @@ public class Voluntario {
 
     private String nombre;
 
-    private Date fnacimeinto;
+    private Date fnacimiento;
 
 
     public Integer getId() {
@@ -27,19 +27,19 @@ public class Voluntario {
         this.nombre = nombre;
     }
 
-    public Date getFnacimeinto() {
-        return this.fnacimeinto;
+    public Date getFnacimiento() {
+        return this.fnacimiento;
     }
 
-    public void setFnacimeinto(Date fnacimeinto) {
-        this.fnacimeinto = fnacimeinto;
+    public void setFnacimiento(Date fnacimiento) {
+        this.fnacimiento = fnacimiento;
     }
 
 
 
-    public Voluntario(String nombre, Date fnacimeinto) {
+    public Voluntario(String nombre, Date fnacimiento) {
         this.nombre = nombre;
-        this.fnacimeinto = fnacimeinto;
+        this.fnacimiento = fnacimiento;
     }
 
 }

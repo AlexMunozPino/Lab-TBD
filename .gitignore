@@ -1,4 +1,4 @@
-
+.properties
 .idea/
 bin
 .settings
@@ -7,5 +7,5 @@ build
 .gradle
 .project
 .vscode
-src/main/resources/application.properties
 gradle
+

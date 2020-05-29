@@ -13,4 +13,6 @@ public interface VoluntarioService {
 
     Voluntario getOneById(Integer id);
 
+    public List<Voluntario> getAllByEmergenciaID(Integer emergencyId);
+
 }

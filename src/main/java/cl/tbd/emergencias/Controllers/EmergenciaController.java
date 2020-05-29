@@ -12,11 +12,8 @@ import java.util.List;
 @RestController
 public class EmergenciaController {
 
-    private final EmergenciaService emergenciaService;
+    private EmergenciaService emergenciaService;
 
-    EmergenciaController(EmergenciaService emergenciaService){
-        this.emergenciaService = emergenciaService;
-    }
 
     @GetMapping("/emergencia")
     public List<Emergencia> getAll(){

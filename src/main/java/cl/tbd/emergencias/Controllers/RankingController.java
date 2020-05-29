@@ -12,11 +12,8 @@ import java.util.List;
 @RestController
 public class RankingController {
 
-    private final RankingService rankingService;
+    private RankingService rankingService;
 
-    RankingController(RankingService rankingService){
-        this.rankingService = rankingService;
-    }
 
     @GetMapping("/ranking")
     public List<Ranking> getAll(){

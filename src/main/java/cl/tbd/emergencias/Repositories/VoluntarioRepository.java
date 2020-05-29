@@ -20,6 +20,8 @@ public class VoluntarioRepository implements RepositoryInterface<Voluntario> {
         String sql = "SELECT * FROM  voluntario";
         try(Connection conn = sql2o.open()) {
             lista = conn.createQuery(sql).executeAndFetch(Voluntario.class);
+        }catch (Exception e) {
+            System.out.println(e.getMessage());
         }
         return lista;
      }
@@ -46,6 +48,21 @@ public class VoluntarioRepository implements RepositoryInterface<Voluntario> {
     @Override
     public Integer update(Voluntario obj) {
         return null;
+    }
+
+    public List<Voluntario> getAllByEmergenciaID(Integer emergencyId){
+        List<Voluntario> lista = new ArrayList<Voluntario>();
+        String sql = "SELECT V.id, V.nombre FROM   voluntario V, tarea T, emergencia E, ranking R "+
+                        "WHERE E.id = :emergencyId "+
+                        "AND E.id = T.id_emergencia "+
+                        "AND T.id = R.id_tarea "+
+                        "AND R.id_voluntario = V.id";
+        try(Connection conn = sql2o.open()) {
+            lista = conn.createQuery(sql).addParameter("emergencyId", emergencyId).executeAndFetch(Voluntario.class);
+        }catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return lista;
     }
     
 }
