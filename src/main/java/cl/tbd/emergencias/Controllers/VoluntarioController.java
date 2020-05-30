@@ -27,6 +27,12 @@ public class VoluntarioController {
         System.out.println(emergencyId);
         return voluntarioService.getAllByEmergenciaID(Integer.parseInt(emergencyId));
     }
+
+    @GetMapping("voluntario/emergencia/{habilidadId}")
+    public List<Voluntario> getVoluntariosOfEmergencias(@PathVariable(value = "habilidadId") String habilidadId ){
+        System.out.println(habilidadId);
+        return voluntarioService.getAllByHabilidadID(Integer.parseInt(habilidadId));
+    }
     
     
 }
