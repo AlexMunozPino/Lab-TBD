@@ -8,4 +8,4 @@ build
 .project
 .vscode
 gradle
-
+src/main/resources/application.properties
