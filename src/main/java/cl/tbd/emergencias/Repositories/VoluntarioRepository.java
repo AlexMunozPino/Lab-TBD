@@ -82,9 +82,11 @@ public class VoluntarioRepository implements RepositoryInterface<Voluntario> {
 
     public List<Voluntario> getAllByHabilidadID(Integer habilidadId){
         List<Voluntario> lista = new ArrayList<Voluntario>();
-        String sql = "SELECT V.nombre From Voluntario V, Vol_habilida VH "+
-                        "WHERE VH.id_habilidad = :habilidadId "+
-                        "AND VH.id_voluntario = V.id";
+        String sql = "SELECT DISTINCT V.id, V.nombre, V.fnacimiento " +
+                "FROM voluntario V " +
+                "INNER JOIN vol_habilidad VH on V.id = VH.id_voluntario " +
+                "and VH.id_habilidad = :habilidadId "+
+                "ORDER BY V.nombre ASC";
         try(Connection conn = sql2o.open()) {
             lista = conn.createQuery(sql).addParameter("habilidadId", habilidadId).executeAndFetch(Voluntario.class);
         }catch (Exception e) {
