@@ -15,4 +15,8 @@ public interface VoluntarioService {
 
     public List<Voluntario> getAllByEmergenciaID(Integer emergencyId);
 
+    public List<Voluntario> getAllByEmergenciaName(String emergencyName);
+
+    public List<Voluntario> getAllByHabilidadID(Integer emergencyId);
+
 }
