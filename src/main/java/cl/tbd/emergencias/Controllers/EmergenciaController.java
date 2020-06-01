@@ -3,6 +3,7 @@ package cl.tbd.emergencias.Controllers;
 import cl.tbd.emergencias.Models.Emergencia;
 import cl.tbd.emergencias.Services.EmergenciaService;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,6 +13,7 @@ import java.util.List;
 @RestController
 public class EmergenciaController {
 
+    @Autowired
     private EmergenciaService emergenciaService;
 
 
