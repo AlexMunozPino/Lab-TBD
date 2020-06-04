@@ -41,6 +41,12 @@ public class VoluntarioController {
     public List<Voluntario> getVoluntariosOfHabilidad (@PathVariable(value = "habilidadId") String habilidadId ){
         return voluntarioService.getAllByHabilidadID(Integer.parseInt(habilidadId));
     }
-    
+
+    @CrossOrigin("*")
+    @GetMapping("voluntario/emergencia/{emergencyName}/habilidad/{habilidadId}")
+    public List<Voluntario> getVoluntariosOfEmeHabilidad (@PathVariable(value = "emergencyName") String emergencyName,
+                                                          @PathVariable(value = "habilidadId") String habilidadId ){
+        return voluntarioService.getAllByEmergenciaHabilidad(emergencyName, Integer.parseInt(habilidadId));
+    }
     
 }
