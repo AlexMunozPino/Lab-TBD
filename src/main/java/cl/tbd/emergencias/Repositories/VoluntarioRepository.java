@@ -95,6 +95,25 @@ public class VoluntarioRepository implements RepositoryInterface<Voluntario> {
         return lista;
     }
 
+    public List<Voluntario> getAllByEmergenciaHabilidad(String emergencyName, Integer habilidadId){
+        List<Voluntario> lista = new ArrayList<Voluntario>();
+        String sql = "SELECT DISTINCT V.nombre " +
+                "FROM voluntario V " +
+                "INNER JOIN vol_habilidad VH on V.id = VH.id_voluntario " +
+                "and VH.id_habilidad = :habilidadId " +
+                "WHERE V.id IN " +
+                "(SELECT V.id FROM   voluntario V, tarea T, emergencia E, ranking R "+
+                "WHERE E.nombre = :emergencyName "+
+                "AND E.id = T.id_emergencia "+
+                "AND T.id = R.id_tarea "+
+                "AND R.id_voluntario = V.id)";
+        try(Connection conn = sql2o.open()) {
+            lista = conn.createQuery(sql).addParameter("habilidadId", habilidadId).addParameter("emergencyName", emergencyName).executeAndFetch(Voluntario.class);
+        }catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return lista;
+    }
     
 }
 
