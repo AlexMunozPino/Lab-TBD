@@ -23,8 +23,7 @@ public class RankingController {
     }
 
     @GetMapping("/ranking/{id}")
-    public Ranking getOneById(@PathVariable(value="id") String id)
-    {
+    public Ranking getOneById(@PathVariable(value="id") String id){
         return this.rankingService.getOneById(Integer.parseInt(id));
     }
 }

@@ -7,8 +7,11 @@ import cl.tbd.emergencias.Repositories.EmergenciaRepository;
 import cl.tbd.emergencias.Repositories.VoluntarioRepository;
 import cl.tbd.emergencias.Repositories.HabilidadRepository;
 import cl.tbd.emergencias.Repositories.RankingRepository;
+import cl.tbd.emergencias.Repositories.TareaRepository;
 import cl.tbd.emergencias.Services.RankingService;
 import cl.tbd.emergencias.Services.RankingServiceImpl;
+import cl.tbd.emergencias.Services.TareaService;
+import cl.tbd.emergencias.Services.TareaServiceImpl;
 import cl.tbd.emergencias.Services.EmergenciaService;
 import cl.tbd.emergencias.Services.EmergenciaServiceImpl;
 import cl.tbd.emergencias.Services.HabilidadService;
@@ -27,6 +30,16 @@ public class AppConfig {
     @Bean
     public VoluntarioRepository voluntarioRepositoryInjection(){
         return new VoluntarioRepository();
+    }
+
+    @Bean
+    public TareaService tareaInjection(){
+        return new TareaServiceImpl();
+    }
+
+    @Bean
+    public TareaRepository tareaRepositoryInjection(){
+        return new TareaRepository();
     }
 
     @Bean
