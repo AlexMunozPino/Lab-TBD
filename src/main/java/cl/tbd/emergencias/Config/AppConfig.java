@@ -1,23 +1,9 @@
 package cl.tbd.emergencias.Config;
 
+import cl.tbd.emergencias.Repositories.*;
+import cl.tbd.emergencias.Services.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import cl.tbd.emergencias.Repositories.EmergenciaRepository;
-import cl.tbd.emergencias.Repositories.VoluntarioRepository;
-import cl.tbd.emergencias.Repositories.HabilidadRepository;
-import cl.tbd.emergencias.Repositories.RankingRepository;
-import cl.tbd.emergencias.Repositories.TareaRepository;
-import cl.tbd.emergencias.Services.RankingService;
-import cl.tbd.emergencias.Services.RankingServiceImpl;
-import cl.tbd.emergencias.Services.TareaService;
-import cl.tbd.emergencias.Services.TareaServiceImpl;
-import cl.tbd.emergencias.Services.EmergenciaService;
-import cl.tbd.emergencias.Services.EmergenciaServiceImpl;
-import cl.tbd.emergencias.Services.HabilidadService;
-import cl.tbd.emergencias.Services.HabilidadServiceImpl;
-import cl.tbd.emergencias.Services.VoluntarioService;
-import cl.tbd.emergencias.Services.VoluntarioServiceImpl;
 
 @Configuration
 public class AppConfig {
@@ -71,5 +57,9 @@ public class AppConfig {
     public EmergenciaRepository emergenciaRepositoryInjection(){
         return new EmergenciaRepository();
     }
-    
+
+    @Bean
+    public LogTareaService logTareaInjection() { return new LogTareaServiceImpl(); }
+    @Bean
+    public LogTareaRepository logTareaRepositoryInjection() { return new LogTareaRepository(); }
 }

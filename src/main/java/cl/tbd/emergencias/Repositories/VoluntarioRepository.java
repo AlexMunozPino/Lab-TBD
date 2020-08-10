@@ -114,7 +114,6 @@ public class VoluntarioRepository implements RepositoryInterface<Voluntario> {
         }
         return lista;
     }
-    
 }
 
 	

@@ -48,5 +48,4 @@ public class VoluntarioController {
                                                           @PathVariable(value = "habilidadId") String habilidadId ){
         return voluntarioService.getAllByEmergenciaHabilidad(emergencyName, Integer.parseInt(habilidadId));
     }
-    
 }

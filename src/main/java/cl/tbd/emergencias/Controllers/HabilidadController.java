@@ -27,5 +27,6 @@ public class HabilidadController {
     {
         return this.habilidadService.getOneById(Integer.parseInt(id));
     }
-    
+
+
 }
