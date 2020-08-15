@@ -1,5 +1,5 @@
 package cl.tbd.emergencias.Models;
-
+//Se define el modelo para la tabla Eme_tarea
 public class Eme_tarea {
     private Integer id;
     private String descrip;

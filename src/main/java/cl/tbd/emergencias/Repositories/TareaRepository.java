@@ -16,6 +16,7 @@ public class TareaRepository implements RepositoryInterface<Tarea>{
     private Sql2o sql2o;
 
     @Override
+    //Método para obtener toda la información contenida en la tabla Tarea
     public List<Tarea> getAll() {
         List<Tarea> lista = new ArrayList<Tarea>();
         String sql = "SELECT * FROM  tarea";
@@ -28,6 +29,7 @@ public class TareaRepository implements RepositoryInterface<Tarea>{
      }
 
      @Override
+     //Método para obtener una tarea específica según su id
     public Tarea getOneById(Integer id) {
         Tarea tarea = null;
         try(Connection connection = sql2o.open())

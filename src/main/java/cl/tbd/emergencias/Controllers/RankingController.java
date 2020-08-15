@@ -18,11 +18,13 @@ public class RankingController {
 
 
     @GetMapping("/ranking")
+    //Método para obtener toda la información contenida en la tabla Ranking
     public List<Ranking> getAll(){
         return this.rankingService.getAll();
     }
 
     @GetMapping("/ranking/{id}")
+    //Método para obtener un ranking específica según su id
     public Ranking getOneById(@PathVariable(value="id") String id){
         return this.rankingService.getOneById(Integer.parseInt(id));
     }

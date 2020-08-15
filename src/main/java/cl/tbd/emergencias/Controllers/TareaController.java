@@ -18,11 +18,13 @@ public class TareaController {
 
     
     @GetMapping("/tarea")
+    //Método para obtener toda la información contenida en la tabla Tarea
     public List<Tarea> getAll(){
         return this.tareaService.getAll();
     }
 
     @GetMapping("/tarea/{id}")
+    //Método para obtener una tarea específica según su id
     public Tarea getOneById(@PathVariable(value = "id") String id){
         return this.tareaService.getOneById(Integer.parseInt(id));
     }

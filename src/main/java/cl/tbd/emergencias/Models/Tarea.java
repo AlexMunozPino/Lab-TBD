@@ -1,7 +1,7 @@
 package cl.tbd.emergencias.Models;
 
 import java.util.Date;
-
+//Se define el modelo para la tabla Tarea
 public class Tarea {
 
     private Integer id;

@@ -15,6 +15,7 @@ public class EmergenciaRepository implements RepositoryInterface<Emergencia>{
     private Sql2o sql2o;
 
     @Override
+    //Método para obtener toda la información contenida en la tabla Emergencia
     public List<Emergencia> getAll() {
         List<Emergencia> lista = new ArrayList<Emergencia>();
         try(Connection conn = sql2o.open()) {
@@ -28,6 +29,7 @@ public class EmergenciaRepository implements RepositoryInterface<Emergencia>{
     }
 
     @Override
+    //Método para obtener una emergencia específica según su id
     public Emergencia getOneById(Integer id) {
         Emergencia emergencia = null;
         try(Connection connection = sql2o.open())

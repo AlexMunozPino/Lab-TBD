@@ -1,5 +1,5 @@
 package cl.tbd.emergencias.Models;
-
+//Se define el modelo para la tabla Ranking
 public class Ranking {
     private Integer id;
     private Integer id_voluntario;

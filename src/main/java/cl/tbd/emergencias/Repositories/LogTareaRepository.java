@@ -19,6 +19,7 @@ public class LogTareaRepository implements  RepositoryInterface<LogTarea> {
     private Sql2o sql2o;
 
     @Override
+    //Método para obtener toda la información contenida en la tabla LogTarea
     public List<LogTarea> getAll() {
         List<LogTarea> lista = new ArrayList<LogTarea>();
         try(Connection conn = sql2o.open()) {
@@ -32,6 +33,7 @@ public class LogTareaRepository implements  RepositoryInterface<LogTarea> {
     }
 
     @Override
+    //Método para obtener una logtarea específica según su id
     public LogTarea getOneById(Integer id) {
         LogTarea logTarea = null;
         try(Connection connection = sql2o.open())
@@ -59,7 +61,7 @@ public class LogTareaRepository implements  RepositoryInterface<LogTarea> {
     public Integer update(LogTarea obj) {
         return null;
     }
-
+    //Método que inserta aleatoriamente con la fecha actual
     public boolean insertRandomWithCurrentDate() {
         Integer lenTarea, lenEstado;
         try(Connection connection = sql2o.open())

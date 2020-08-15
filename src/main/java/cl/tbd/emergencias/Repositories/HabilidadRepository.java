@@ -15,6 +15,7 @@ public class HabilidadRepository implements RepositoryInterface<Habilidad>{
     private Sql2o sql2o;
 
     @Override
+    //Método para obtener toda la información contenida en la tabla Habilidad
     public List<Habilidad> getAll() {
         List<Habilidad> lista = new ArrayList<Habilidad>();
         try(Connection conn = sql2o.open()) {
@@ -28,6 +29,7 @@ public class HabilidadRepository implements RepositoryInterface<Habilidad>{
     }
 
     @Override
+    //Método para obtener una habilidad específica según su id
     public Habilidad getOneById(Integer id) {
         Habilidad habilidad = null;
         try(Connection connection = sql2o.open())

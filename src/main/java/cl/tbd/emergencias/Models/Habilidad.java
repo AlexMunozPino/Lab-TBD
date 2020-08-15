@@ -1,6 +1,6 @@
 package cl.tbd.emergencias.Models;
 
-
+//Se define el modelo para la tabla Habilidad
 public class Habilidad {
     private Integer id;
     private String descrip;

@@ -15,6 +15,7 @@ public class RankingRepository implements RepositoryInterface<Ranking>{
     private Sql2o sql2o;
 
     @Override
+    //Método para obtener toda la información contenida en la tabla Ranking
     public List<Ranking> getAll() {
         List<Ranking> lista = new ArrayList<Ranking>();
         try(Connection conn = sql2o.open()) {
@@ -28,6 +29,7 @@ public class RankingRepository implements RepositoryInterface<Ranking>{
     }
 
     @Override
+    //Método para obtener un ranking específica según su id
     public Ranking getOneById(Integer id) {
         Ranking ranking = null;
         try(Connection connection = sql2o.open())

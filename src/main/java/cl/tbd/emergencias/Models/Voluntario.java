@@ -1,7 +1,7 @@
 package cl.tbd.emergencias.Models;
 
 import java.util.Date;
-
+//Se define el modelo para la tabla Voluntario
 public class Voluntario {
 
     private Integer id;

@@ -1,5 +1,5 @@
 package cl.tbd.emergencias.Models;
-
+//Se define el modelo para la tabla Tarea_habilidad
 public class Tarea_habilidad {
     
     private Integer id;

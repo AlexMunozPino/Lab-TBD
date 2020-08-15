@@ -18,11 +18,13 @@ public class HabilidadController {
 
 
     @GetMapping("/habilidad")
+    //Método para obtener toda la información contenida en la tabla Habilidad
     public List<Habilidad> getAll(){
         return this.habilidadService.getAll();
     }
 
     @GetMapping("/habilidad/{id}")
+    //Método para obtener una habilidad específica según su id
     public Habilidad getOneById(@PathVariable(value="id") String id)
     {
         return this.habilidadService.getOneById(Integer.parseInt(id));

@@ -1,5 +1,5 @@
 package cl.tbd.emergencias.Models;
-
+//Se define el modelo para la tabla Eme_habilidad
 public class Eme_habilidad {
     private Integer id;
     private Integer id_emergencia;

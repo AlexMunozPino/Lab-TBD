@@ -20,30 +20,35 @@ public class VoluntarioController {
 
     @CrossOrigin("*")
     @GetMapping("/voluntario")
+    //Método para obtener toda la información contenida en la tabla Voluntario
     public List<Voluntario> getMethodName() {
         return voluntarioService.getAll();
     }
 
     @CrossOrigin("*")
     @GetMapping("voluntario/emergencia/{emergencyId}")
+    //Método para obtener todos los voluntarios de una emergencia especifica segun su Id
     public List<Voluntario> getVoluntariosOfEmergencias(@PathVariable(value = "emergencyId") String emergencyId ){
         return voluntarioService.getAllByEmergenciaID(Integer.parseInt(emergencyId));
     }
 
     @CrossOrigin("*")
     @GetMapping("voluntario/nombre-emergencia/{emergencyName}")
+    //Método para obtener todos los voluntarios de una emergencia especifica segun su nombre
     public List<Voluntario> getVoluntariosOfEmergenciasByName(@PathVariable(value = "emergencyName") String emergencyName ){
         return voluntarioService.getAllByEmergenciaName(emergencyName);
     }
 
     @CrossOrigin("*")
     @GetMapping("voluntario/habilidad/{habilidadId}")
+    //Método para obtener todos los voluntarios con una habilidad especifica segun su Id
     public List<Voluntario> getVoluntariosOfHabilidad (@PathVariable(value = "habilidadId") String habilidadId ){
         return voluntarioService.getAllByHabilidadID(Integer.parseInt(habilidadId));
     }
 
     @CrossOrigin("*")
     @GetMapping("voluntario/emergencia/{emergencyName}/habilidad/{habilidadId}")
+    //Método para obtener todos los voluntarios con una habilidad especifica segun su Id y segun el nombre de una emergencia
     public List<Voluntario> getVoluntariosOfEmeHabilidad (@PathVariable(value = "emergencyName") String emergencyName,
                                                           @PathVariable(value = "habilidadId") String habilidadId ){
         return voluntarioService.getAllByEmergenciaHabilidad(emergencyName, Integer.parseInt(habilidadId));

@@ -1,5 +1,5 @@
 package cl.tbd.emergencias.Models;
-
+//Se define el modelo para la tabla Institucion
 public class Institucion {
     private Integer id;
     private String nombre;

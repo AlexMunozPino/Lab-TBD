@@ -16,12 +16,14 @@ public class LogTareaController {
 
     @CrossOrigin("*")
     @GetMapping("/logtarea")
+    //Método para obtener toda la información contenida en la tabla LogTarea
     public List<LogTarea> getAll(){
         return this.logTareaService.getAll();
     }
 
     @CrossOrigin("*")
     @GetMapping("/logtarea/{id}")
+    //Método para obtener una logtarea específica según su id
     public LogTarea getOneById(@PathVariable(value="id") String id)
     {
         return this.logTareaService.getOneById(Integer.parseInt(id));
@@ -29,6 +31,7 @@ public class LogTareaController {
 
     @CrossOrigin("*")
     @GetMapping("/logtarea/addrandom")
+    //Método que inserta aleatoriamente con la fecha actual
     public boolean insertRandomWithCurrentDate(){
         return this.logTareaService.insertRandomWithCurrentDate();
     };

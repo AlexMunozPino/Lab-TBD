@@ -1,5 +1,5 @@
 package cl.tbd.emergencias.Models;
-
+//Se define el modelo para la tabla Vol_habilidad
 public class Vol_habilidad {
 
     private Integer id;
