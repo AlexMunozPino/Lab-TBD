@@ -35,8 +35,8 @@ public class VoluntarioServiceImpl implements VoluntarioService {
     }
 
     @Override
-    public List<Voluntario> getAllByHabilidadID(String habilidadNombre){
-        return voluntarioRepository.getAllByHabilidadID(habilidadNombre);
+    public List<Voluntario> getAllByHabilidad(String habilidadNombre){
+        return voluntarioRepository.getAllByHabilidad(habilidadNombre);
     }
     @Override
     public List<Voluntario> getAllByEmergenciaHabilidad(String emergencyName, Integer habilidadId){

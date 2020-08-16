@@ -81,8 +81,8 @@ public class VoluntarioRepository implements RepositoryInterface<Voluntario> {
         }
         return lista;
     }
-    //Método para obtener todos los voluntarios con una habilidad especifica segun su Id
-    public List<Voluntario> getAllByHabilidadID( String habilidadNombre){
+    //Método para obtener todos los voluntarios con una habilidad especifica segun su nombre
+    public List<Voluntario> getAllByHabilidad( String habilidadNombre){
         List<Voluntario> lista = new ArrayList<Voluntario>();
         String sql = "SELECT DISTINCT V.id, V.nombre, V.fnacimiento " +
                 "FROM voluntario V, habilidad H, vol_habilidad VH " +
