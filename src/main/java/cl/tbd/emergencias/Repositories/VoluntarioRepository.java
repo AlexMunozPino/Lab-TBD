@@ -68,11 +68,12 @@ public class VoluntarioRepository implements RepositoryInterface<Voluntario> {
     //Método para obtener todos los voluntarios de una emergencia especifica segun su nombre
     public List<Voluntario> getAllByEmergenciaName(String emergencyName){
         List<Voluntario> lista = new ArrayList<Voluntario>();
-        String sql = "SELECT V.id, V.nombre FROM   voluntario V, tarea T, emergencia E, ranking R "+
+        String sql = "SELECT DISTINCT V.id, V.nombre FROM   voluntario V, tarea T, emergencia E, ranking R "+
                         "WHERE E.nombre = :emergencyName "+
                         "AND E.id = T.id_emergencia "+
                         "AND T.id = R.id_tarea "+
-                        "AND R.id_voluntario = V.id";
+                        "AND R.id_voluntario = V.id "+
+                        "ORDER BY V.id ASC";
         try(Connection conn = sql2o.open()) {
             lista = conn.createQuery(sql).addParameter("emergencyName", emergencyName).executeAndFetch(Voluntario.class);
         }catch (Exception e) {
@@ -80,15 +81,15 @@ public class VoluntarioRepository implements RepositoryInterface<Voluntario> {
         }
         return lista;
     }
-    //Método para obtener todos los voluntarios con una habilidad especifica segun su Id
-    public List<Voluntario> getAllByHabilidadID( String habilidadNombre){
+    //Método para obtener todos los voluntarios con una habilidad especifica segun su nombre
+    public List<Voluntario> getAllByHabilidad( String habilidadNombre){
         List<Voluntario> lista = new ArrayList<Voluntario>();
         String sql = "SELECT DISTINCT V.id, V.nombre, V.fnacimiento " +
                 "FROM voluntario V, habilidad H, vol_habilidad VH " +
                 "WHERE H.descrip =  :habilidadNombre "+
                 "AND VH.id_habilidad = H.id " +
                 "AND V.id = VH.id_voluntario " +
-                "ORDER BY V.nombre ASC";
+                "ORDER BY V.id ASC";
         try(Connection conn = sql2o.open()) {
             lista = conn.createQuery(sql).addParameter("habilidadNombre", habilidadNombre).executeAndFetch(Voluntario.class);
         }catch (Exception e) {
