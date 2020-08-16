@@ -85,7 +85,7 @@ public class VoluntarioRepository implements RepositoryInterface<Voluntario> {
         List<Voluntario> lista = new ArrayList<Voluntario>();
         String sql = "SELECT DISTINCT V.id, V.nombre, V.fnacimiento " +
                 "FROM voluntario V, habilidad H, vol_habilidad VH " +
-                "WHERE H.descrip = :habilidadNombre "+
+                "WHERE H.descrip =  :habilidadNombre "+
                 "AND VH.id_habilidad = H.id " +
                 "AND V.id = VH.id_voluntario " +
                 "ORDER BY V.nombre ASC";
