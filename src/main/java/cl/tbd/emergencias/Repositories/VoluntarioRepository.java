@@ -81,15 +81,16 @@ public class VoluntarioRepository implements RepositoryInterface<Voluntario> {
         return lista;
     }
     //Método para obtener todos los voluntarios con una habilidad especifica segun su Id
-    public List<Voluntario> getAllByHabilidadID(Integer habilidadId){
+    public List<Voluntario> getAllByHabilidadID( String habilidadNombre){
         List<Voluntario> lista = new ArrayList<Voluntario>();
         String sql = "SELECT DISTINCT V.id, V.nombre, V.fnacimiento " +
-                "FROM voluntario V " +
-                "INNER JOIN vol_habilidad VH on V.id = VH.id_voluntario " +
-                "and VH.id_habilidad = :habilidadId "+
+                "FROM voluntario V, habilidad H, vol_habilidad VH " +
+                "WHERE H.descrip = :habilidadNombre "+
+                "AND VH.id_habilidad = H.id " +
+                "AND V.id = VH.id_voluntario " +
                 "ORDER BY V.nombre ASC";
         try(Connection conn = sql2o.open()) {
-            lista = conn.createQuery(sql).addParameter("habilidadId", habilidadId).executeAndFetch(Voluntario.class);
+            lista = conn.createQuery(sql).addParameter("habilidadNombre", habilidadNombre).executeAndFetch(Voluntario.class);
         }catch (Exception e) {
             System.out.println(e.getMessage());
         }

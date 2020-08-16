@@ -42,8 +42,8 @@ public class VoluntarioController {
     @CrossOrigin("*")
     @GetMapping("voluntario/habilidad/{habilidadId}")
     //Método para obtener todos los voluntarios con una habilidad especifica segun su Id
-    public List<Voluntario> getVoluntariosOfHabilidad (@PathVariable(value = "habilidadId") String habilidadId ){
-        return voluntarioService.getAllByHabilidadID(Integer.parseInt(habilidadId));
+    public List<Voluntario> getVoluntariosOfHabilidad (@PathVariable(value = "habilidadNombre") String habilidadNombre ){
+        return voluntarioService.getAllByHabilidadID(habilidadNombre);
     }
 
     @CrossOrigin("*")
