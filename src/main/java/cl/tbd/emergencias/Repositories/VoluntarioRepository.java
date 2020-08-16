@@ -68,7 +68,7 @@ public class VoluntarioRepository implements RepositoryInterface<Voluntario> {
     //Método para obtener todos los voluntarios de una emergencia especifica segun su nombre
     public List<Voluntario> getAllByEmergenciaName(String emergencyName){
         List<Voluntario> lista = new ArrayList<Voluntario>();
-        String sql = "SELECT DISTINCT V.id, V.nombre FROM   voluntario V, tarea T, emergencia E, ranking R "+
+        String sql = "SELECT DISTINCT V.id, V.nombre, V.fnacimiento FROM   voluntario V, tarea T, emergencia E, ranking R "+
                         "WHERE E.nombre = :emergencyName "+
                         "AND E.id = T.id_emergencia "+
                         "AND T.id = R.id_tarea "+
@@ -83,6 +83,7 @@ public class VoluntarioRepository implements RepositoryInterface<Voluntario> {
     }
     //Método para obtener todos los voluntarios con una habilidad especifica segun su nombre
     public List<Voluntario> getAllByHabilidad( String habilidadNombre){
+        System.out.println(habilidadNombre);
         List<Voluntario> lista = new ArrayList<Voluntario>();
         String sql = "SELECT DISTINCT V.id, V.nombre, V.fnacimiento " +
                 "FROM voluntario V, habilidad H, vol_habilidad VH " +
