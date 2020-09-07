@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import cl.tbd.emergencias.Models.Vol_distancia;
 import cl.tbd.emergencias.Models.Voluntario;
 import cl.tbd.emergencias.Repositories.VoluntarioRepository;
 
@@ -41,6 +42,10 @@ public class VoluntarioServiceImpl implements VoluntarioService {
     @Override
     public List<Voluntario> getAllByEmergenciaHabilidad(String emergencyName, Integer habilidadId){
         return voluntarioRepository.getAllByEmergenciaHabilidad(emergencyName, habilidadId);
+    }
+
+    public List<Vol_distancia> getUsersByEmergencydistance(Integer emergenciaId){
+        return voluntarioRepository.getUsersByEmergencydistance(emergenciaId);
     }
 
 }

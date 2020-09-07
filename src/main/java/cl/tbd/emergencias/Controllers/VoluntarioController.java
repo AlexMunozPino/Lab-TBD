@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import cl.tbd.emergencias.Models.Vol_distancia;
 import cl.tbd.emergencias.Models.Voluntario;
 import cl.tbd.emergencias.Services.VoluntarioService;
 
@@ -53,4 +54,12 @@ public class VoluntarioController {
                                                           @PathVariable(value = "habilidadId") String habilidadId ){
         return voluntarioService.getAllByEmergenciaHabilidad(emergencyName, Integer.parseInt(habilidadId));
     }
+
+    @CrossOrigin("*")
+    @GetMapping("voluntario/dist/{emergencyId}")
+    //Método para obtener todos los voluntarios con una habilidad especifica segun su Id y segun el nombre de una emergencia
+    public List<Vol_distancia> getVoluntariosByEmergencydistance (@PathVariable(value = "emergencyId") String emergencyId){
+        return voluntarioService.getUsersByEmergencydistance(Integer.parseInt(emergencyId));
+    }
+
 }

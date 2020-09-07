@@ -2,7 +2,7 @@ package cl.tbd.emergencias.Models;
 
 import java.util.Date;
 //Se define el modelo para la tabla Voluntario
-public class Voluntario {
+public class Vol_distancia {
 
     private Integer id;
 
@@ -10,14 +10,17 @@ public class Voluntario {
 
     private String apellido;
 
-    private String email;
-
     private double longitude;
 
     private double latitude;
 
-    private Date fnacimiento;
+    private double distancia;
 
+
+    public Vol_distancia(String nombre, String apellido) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+    }
 
     public Integer getId() {
         return this.id;
@@ -35,21 +38,6 @@ public class Voluntario {
         this.nombre = nombre;
     }
 
-    public Date getFnacimiento() {
-        return this.fnacimiento;
-    }
-
-    public void setFnacimiento(Date fnacimiento) {
-        this.fnacimiento = fnacimiento;
-    }
-
-
-    public Voluntario(String nombre, Date fnacimiento) {
-        this.nombre = nombre;
-        this.fnacimiento = fnacimiento;
-    }
-    
-
     public String getApellido() {
         return this.apellido;
     }
@@ -58,19 +46,21 @@ public class Voluntario {
         this.apellido = apellido;
     }
 
-    public String getEmail() {
-        return this.email;
+
+    public double getDistancia() {
+        return this.distancia;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setDistancia(double distancia) {
+        this.distancia = distancia;
     }
+
 
     public double getLongitude() {
         return this.longitude;
     }
 
-    public void setLongitude(Long longitude) {
+    public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
 
@@ -78,9 +68,8 @@ public class Voluntario {
         return this.latitude;
     }
 
-    public void setLatitude(Long latitude) {
+    public void setLatitude(double latitude) {
         this.latitude = latitude;
     }
-
 
 }

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
+import cl.tbd.emergencias.Models.Vol_distancia;
 import cl.tbd.emergencias.Models.Voluntario;
 
 public class VoluntarioRepository implements RepositoryInterface<Voluntario> {
@@ -118,6 +119,19 @@ public class VoluntarioRepository implements RepositoryInterface<Voluntario> {
         }
         return lista;
     }
+
+    public List<Vol_distancia> getUsersByEmergencydistance(Integer emergenciaId){
+        List<Vol_distancia> lista = new ArrayList<Vol_distancia>();
+        String sql = "SELECT v.id AS id,v.nombre AS nombre, v.apellido AS apellido, v.longitude AS longitude, v.latitude AS latitude," +
+                "st_distance(ST_GeomFromText(CONCAT('POINT(',v.longitude,' ',v.latitude,')'),4326)," +
+                "e.location::geography) AS distancia FROM voluntario v, emergencia e WHERE e.id = :emergenciaId ORDER BY distancia asc;";
+        try(Connection conn = sql2o.open()) {
+            lista = conn.createQuery(sql).addParameter("emergenciaId", emergenciaId).executeAndFetch(Vol_distancia.class);
+        }catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return lista;
+    } 
 }
 
 	

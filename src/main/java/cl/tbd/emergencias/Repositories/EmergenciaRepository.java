@@ -19,7 +19,7 @@ public class EmergenciaRepository implements RepositoryInterface<Emergencia>{
     public List<Emergencia> getAll() {
         List<Emergencia> lista = new ArrayList<Emergencia>();
         try(Connection conn = sql2o.open()) {
-            lista = conn.createQuery("SELECT * FROM  emergencia")
+            lista = conn.createQuery("SELECT id, nombre, descrip, finicio, ffin, id_institucion, st_x(st_astext(location)) AS longitude, st_y(st_astext(location)) AS latitude FROM  emergencia")
                     .executeAndFetch(Emergencia.class);
         }
         catch (Exception e) {

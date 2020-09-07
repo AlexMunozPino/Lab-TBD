@@ -9,6 +9,8 @@ public class Emergencia {
     private Date finicio;
     private Date ffin;
     private Integer id_institucion;
+    private double longitude;
+    private double latitude;
 
     public Emergencia(Integer id, String nombre, String descrip, Date finicio, Date ffin, Integer id_institucion) {
         this.id = id;
@@ -66,4 +68,22 @@ public class Emergencia {
     public void setId_institucion(Integer id_institucion) {
         this.id_institucion = id_institucion;
     }
+
+
+    public double getLongitude() {
+        return this.longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    public double getLatitude() {
+        return this.latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
 }
