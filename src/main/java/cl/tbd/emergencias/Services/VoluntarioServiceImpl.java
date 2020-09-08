@@ -44,6 +44,7 @@ public class VoluntarioServiceImpl implements VoluntarioService {
         return voluntarioRepository.getAllByEmergenciaHabilidad(emergencyName, habilidadId);
     }
 
+    @Override
     public List<Vol_distancia> getUsersByEmergencydistance(Integer emergenciaId){
         return voluntarioRepository.getUsersByEmergencydistance(emergenciaId);
     }

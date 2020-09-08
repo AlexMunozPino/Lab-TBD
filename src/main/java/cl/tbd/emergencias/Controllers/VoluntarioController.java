@@ -55,9 +55,10 @@ public class VoluntarioController {
         return voluntarioService.getAllByEmergenciaHabilidad(emergencyName, Integer.parseInt(habilidadId));
     }
 
-    @CrossOrigin("*")
-    @GetMapping("voluntario/dist/{emergencyId}")
+    
     //Método para obtener todos los voluntarios con una habilidad especifica segun su Id y segun el nombre de una emergencia
+    @CrossOrigin("*")
+    @GetMapping("/voluntario/dist/{emergencyId}")
     public List<Vol_distancia> getVoluntariosByEmergencydistance (@PathVariable(value = "emergencyId") String emergencyId){
         return voluntarioService.getUsersByEmergencydistance(Integer.parseInt(emergencyId));
     }
