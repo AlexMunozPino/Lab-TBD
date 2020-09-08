@@ -5,6 +5,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.sql2o.Sql2o;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Configuration
 public class DatabaseContext {
     //Definir url de la BD, usuario y password
@@ -18,9 +21,28 @@ public class DatabaseContext {
     @Value("${database.password}")
     private String dbPass;
 
+    @Value("${parallel1.url}")
+    private String parallelUrl1;
+
+    @Value("${parallel2.url}")
+    private String parallelUrl2;
+
+    @Value("${parallel3.url}")
+    private String parallelUrl3;
+
 
     @Bean
-    public Sql2o sql2o(){
+    public Sql2o sql2o() {
         return new Sql2o(dbUrl, dbUser, dbPass);
     }
+
+    @Bean(name="parallel")
+    public List<Sql2o> sql2o_parallel() {
+        List<Sql2o> sql2o_parallel = new ArrayList<Sql2o>(3);
+        sql2o_parallel.add(new Sql2o(parallelUrl1, dbUser, dbPass));
+        sql2o_parallel.add(new Sql2o(parallelUrl2, dbUser, dbPass));
+        sql2o_parallel.add(new Sql2o(parallelUrl3, dbUser, dbPass));
+        return sql2o_parallel;
+    }
+
 }
