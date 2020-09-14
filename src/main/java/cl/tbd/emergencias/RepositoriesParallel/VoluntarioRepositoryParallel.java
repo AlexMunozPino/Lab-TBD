@@ -8,6 +8,7 @@ import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -119,6 +120,33 @@ public class VoluntarioRepositoryParallel {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    public Integer getMaxId() {
+        try {
+            ExecutorService executor = Executors.newFixedThreadPool(sql2o_parallel.size());
+            ArrayList<Integer> results = new ArrayList<>(3);
+            for (int i = 0; i < sql2o_parallel.size(); i++) {
+                final int db = i;
+                executor.execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        try (Connection conn = sql2o_parallel.get(db).open()) {
+                            results.add(conn.createQuery("select max(id) from voluntario")
+                                    .executeScalar(Integer.class));
+                        }
+                    }
+                });
+            }
+            executor.shutdown();
+            executor.awaitTermination(24 * 3600, TimeUnit.SECONDS);
+
+            return Collections.max(results);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
+        return null;
     }
 
     public int hash(int id) {
