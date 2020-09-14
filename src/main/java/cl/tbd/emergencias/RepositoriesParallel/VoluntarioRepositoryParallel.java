@@ -23,7 +23,7 @@ public class VoluntarioRepositoryParallel {
     public void insert(VoluntarioParallel voluntario) {
         int db = hash(voluntario);
         try (Connection conn = sql2o_parallel.get(db).open()) {
-            conn.createQuery("insert into voluntario (id, nombre, fnacimiento)" +
+            conn.createQuery("insert into voluntario (id, nombre, fnacimiento) " +
                     "values (:id, :nombre, :fnacimiento)")
                     .addParameter("id", voluntario.getId())
                     .addParameter("nombre", voluntario.getNombre())
@@ -99,8 +99,8 @@ public class VoluntarioRepositoryParallel {
     public void update(VoluntarioParallel voluntario, Integer id) {
         int db = hash(voluntario);
         try (Connection conn = sql2o_parallel.get(db).open()) {
-            conn.createQuery("update habilidad " +
-                    "set id=:id, nombre=:nombre, fnacimiento=:fnacimiento" +
+            conn.createQuery("update voluntario " +
+                    "set id=:id, nombre=:nombre, fnacimiento=:fnacimiento " +
                     "where id=:id")
                     .addParameter("id", voluntario.getId())
                     .addParameter("nombre", voluntario.getNombre())
@@ -115,7 +115,6 @@ public class VoluntarioRepositoryParallel {
         int db = hash(id);
         try (Connection conn = sql2o_parallel.get(db).open()) {
             conn.createQuery("delete from voluntario where id =" + id)
-                    .addParameter("id", id)
                     .executeUpdate();
         } catch (Exception e) {
             System.out.println(e.getMessage());

@@ -49,7 +49,7 @@ public class VoluntarioHabilidadControllerParallel {
 
     @CrossOrigin("*")
     @DeleteMapping("/parallel/vol-habilidad/{id}")
-    public void update(@PathVariable(value = "id") String id) {
+    public void delete(@PathVariable(value = "id") String id) {
         int input_id = Integer.parseInt(id);
         this.repo.delete(input_id);
     }

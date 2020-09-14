@@ -22,7 +22,7 @@ public class HabilidadRepositoryParallel {
     public void insert(Habilidad habilidad) {
         int db = hash(habilidad);
         try (Connection conn = sql2o_parallel.get(db).open()) {
-            conn.createQuery("insert into habilidad (id, descrip)" +
+            conn.createQuery("insert into habilidad (id, descrip) " +
                     "values (:id, :descrip)")
                     .addParameter("id", habilidad.getId())
                     .addParameter("descrip", habilidad.getDescrip())
@@ -98,7 +98,7 @@ public class HabilidadRepositoryParallel {
         int db = hash(habilidad);
         try (Connection conn = sql2o_parallel.get(db).open()) {
             conn.createQuery("update habilidad " +
-                    "set id=:id, descrip=:descrip" +
+                    "set id=:id, descrip=:descrip " +
                     "where id=:id")
                     .addParameter("id", habilidad.getId())
                     .addParameter("descrip", habilidad.getDescrip())
@@ -112,7 +112,6 @@ public class HabilidadRepositoryParallel {
         int db = hash(id);
         try (Connection conn = sql2o_parallel.get(db).open()) {
             conn.createQuery("delete from habilidad where id =" + id)
-                    .addParameter("id", id)
                     .executeUpdate();
         } catch (Exception e) {
             System.out.println(e.getMessage());

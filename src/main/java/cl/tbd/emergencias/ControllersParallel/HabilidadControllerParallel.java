@@ -30,6 +30,7 @@ public class HabilidadControllerParallel {
                        @PathVariable(value = "descrip") String descrip) {
         int input_id = Integer.parseInt(id);
         Habilidad habilidad = new Habilidad(input_id, descrip);
+        this.repo.insert(habilidad);
     }
 
     @CrossOrigin("*")
@@ -43,7 +44,7 @@ public class HabilidadControllerParallel {
 
     @CrossOrigin("*")
     @DeleteMapping("/parallel/habilidad/{id}")
-    public void update(@PathVariable(value = "id") String id) {
+    public void delete(@PathVariable(value = "id") String id) {
         int input_id = Integer.parseInt(id);
         this.repo.delete(input_id);
     }
