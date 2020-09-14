@@ -26,14 +26,12 @@ public class VoluntarioHabilidadControllerParallel {
     }
 
     @CrossOrigin("*")
-    @PostMapping("/parallel/vol-habilidad/{id}/{id_habilidad}/{id_voluntario}")
-    public void insert(@PathVariable(value = "id") String id,
-                       @PathVariable(value = "id_habilidad") String id_habilidad,
+    @PostMapping("/parallel/vol-habilidad/{id_habilidad}/{id_voluntario}")
+    public void insert(@PathVariable(value = "id_habilidad") String id_habilidad,
                        @PathVariable(value = "id_voluntario") String id_voluntario) {
-        int input_id = Integer.parseInt(id);
         int input_id_hab = Integer.parseInt(id_habilidad);
         int input_id_vol = Integer.parseInt(id_voluntario);
-        Vol_habilidad vol_habilidad = new Vol_habilidad(input_id, input_id_vol, input_id_hab);
+        Vol_habilidad vol_habilidad = new Vol_habilidad(0, input_id_vol, input_id_hab);
         this.repo.insert(vol_habilidad);
     }
 
