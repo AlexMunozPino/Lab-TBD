@@ -21,7 +21,7 @@ public class VoluntarioHabilidadRepositoryParallel {
     @Qualifier("parallel")
     private List<Sql2o> sql2o_parallel;
 
-    public void insert(Vol_habilidad vol_habilidad) {
+    public int insert(Vol_habilidad vol_habilidad) {
         int id = getMaxId() + 1;
         int db = hash(id);
         try (Connection conn = sql2o_parallel.get(db).open()) {
@@ -34,6 +34,7 @@ public class VoluntarioHabilidadRepositoryParallel {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+        return db+1;
     }
 
     public Vol_habilidad getOneById(Integer id) {
